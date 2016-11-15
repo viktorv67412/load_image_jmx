@@ -1,37 +1,23 @@
 package com;
 
-import javax.management.*;
-import java.io.IOException;
+import javax.management.MBeanServer;
+import javax.management.ObjectName;
+import javax.management.StandardMBean;
 import java.lang.management.ManagementFactory;
 
-public class JMXAgent extends Thread {
+public class JMXAgent {
 
-    @Override
-    public void run() {
 
-        MBeanServer platformMBeanServer = ManagementFactory.getPlatformMBeanServer();
+        /*MBeanServer platformMBeanServer = ManagementFactory.getPlatformMBeanServer();
 
         PropertiesModel propertiesModel = new PropertiesModel();
 
-        try {
-            StandardMBean standardMBean = new StandardMBean(propertiesModel, PropertiesModel.class);
-            ObjectName objectName = new ObjectName("load_image_jmx:name=first-mbean");
+        StandardMBean standardMBean = new StandardMBean(propertiesModel, PropertiesModel.class);
+        ObjectName objectName = new ObjectName("load_image_jmx:name=first-mbean");
 
-            platformMBeanServer.registerMBean(standardMBean, objectName);
+        platformMBeanServer.registerMBean(standardMBean, objectName);
 
-            System.out.println("Please press Enter to stop ...");
-            System.in.read();
+        System.out.println("Please press Enter to stop ...");
+        System.in.read();*/
 
-        } catch (NotCompliantMBeanException e) {
-            e.printStackTrace();
-        } catch (MalformedObjectNameException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InstanceAlreadyExistsException e) {
-            e.printStackTrace();
-        } catch (MBeanRegistrationException e) {
-            e.printStackTrace();
-        }
-    }
 }
