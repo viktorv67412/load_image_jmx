@@ -32,12 +32,16 @@ public class ImageLoader {
         }
         ImageIO.write(img, "png", file);
 
+        jmxAgentStart();
+    }
+
+    public static void jmxAgentStart() throws NotCompliantMBeanException, MalformedObjectNameException, InstanceAlreadyExistsException, MBeanRegistrationException, IOException {
 
         MBeanServer platformMBeanServer = ManagementFactory.getPlatformMBeanServer();
 
-        PropertiesModel propertiesModel = new PropertiesModel();
+        PropertiesModelMBean propertiesModelMBean = new PropertiesModel();
 
-        StandardMBean standardMBean = new StandardMBean(propertiesModel, PropertiesModel.class);
+        StandardMBean standardMBean = new StandardMBean(propertiesModelMBean, PropertiesModelMBean.class);
         ObjectName objectName = new ObjectName("load_image_jmx:name=first-mbean");
 
         platformMBeanServer.registerMBean(standardMBean, objectName);
