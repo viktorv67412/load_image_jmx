@@ -2,7 +2,6 @@ package com;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -23,7 +22,6 @@ public class PropertiesModel implements PropertiesModelMBean {
 
     @Override
     public void setUrl(String url) throws ConfigurationException {
-
         PropertiesConfiguration propertiesConfiguration
                 = new PropertiesConfiguration("/Users/viktor/Desktop/Java EE/git_repos/load_image_jmx/src/main/resources/config.properties");
 
